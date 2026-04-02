@@ -1,0 +1,93 @@
+.hero {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: var(--spacing-xl) 0;
+}
+
+.heroBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+.heroImage {
+  object-fit: cover;
+  opacity: 0.4;
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0));
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0));
+}
+
+.heroContent {
+  max-width: 800px;
+}
+
+.heroTitle {
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  margin-bottom: var(--spacing-md);
+  color: var(--text-color);
+  line-height: 1.1;
+}
+
+.heroTitle span {
+  color: var(--color-primary);
+}
+
+.heroDescription {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  margin-bottom: var(--spacing-lg);
+  max-width: 600px;
+}
+
+.heroActions {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.servicesSection {
+  padding: var(--spacing-xl) 0;
+  background-color: var(--surface-color);
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.serviceCard {
+  padding: var(--spacing-lg);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+  background: var(--bg-color);
+}
+
+.serviceIcon {
+  width: 64px;
+  height: 64px;
+  background-color: rgba(255, 179, 0, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-sm);
+}
