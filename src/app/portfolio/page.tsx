@@ -10,39 +10,45 @@ export default function PortfolioPage() {
   ];
 
   return (
-    <div className="container animate-fade-in" style={{ paddingTop: "var(--spacing-xl)", paddingBottom: "var(--spacing-xl)" }}>
-      <div style={{ textAlign: "center", marginBottom: "var(--spacing-xl)" }}>
-        <h1 style={{ fontSize: "3rem" }}>Our Identity Portfolio</h1>
-        <p style={{ color: "var(--text-muted)", fontSize: "1.2rem", maxWidth: "700px", margin: "0 auto" }}>
-          From your logo to your shop branding, Golden Hive Prints is here to make your business stand out from day one. Don't just start a company, build a brand that lasts.
-        </p>
-      </div>
+    <div style={{ padding: "var(--space-xl) 0" }}>
+      <div className="container animate-in">
+        <header style={{ marginBottom: "var(--space-xl)", maxWidth: "800px" }}>
+          <h1 style={{ fontSize: "var(--text-3xl)", marginBottom: "var(--space-sm)" }}>Identity Portfolio</h1>
+          <p style={{ fontSize: "var(--text-lg)", color: "var(--text-secondary)" }}>
+            From your logo to your shop branding, Golden Hive Prints is here to make your business stand out from day one. Don't just start a company, build a brand that lasts.
+          </p>
+        </header>
 
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(400px, 1fr))", gap: "var(--spacing-lg)" }}>
-        {artworks.map((art, i) => (
-          <div key={i} className="hover-lift" style={{ borderRadius: "var(--radius-md)", overflow: "hidden", position: "relative", aspectRatio: "4/3", border: "1px solid var(--border-color)" }}>
-            <Image 
-              src={`/assets/${art.img}`} 
-              alt={art.title} 
-              fill 
-              style={{ objectFit: "cover", backgroundColor: "#fff" }} 
-            />
-            <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, padding: "var(--spacing-sm)", background: "rgba(0,0,0,0.85)", color: "white" }}>
-              <h4 style={{ margin: "0 0 4px 0", color: "var(--color-primary)" }}>{art.title}</h4>
-              <p style={{ margin: 0, fontSize: "0.85rem", color: "#ccc" }}>{art.desc}</p>
-            </div>
-          </div>
-        ))}
-      </div>
+        <div className="bento-grid">
+          {artworks.map((art, i) => (
+            <article 
+              key={i} 
+              className={`card ${i === 0 || i === 1 ? 'col-span-half' : 'col-span-half'}`} 
+              style={{ overflow: "hidden", position: "relative", padding: 0, minHeight: "450px", border: "1px solid var(--border-subtle)" }}
+            >
+              <Image 
+                src={`/assets/${art.img}`} 
+                alt={art.title} 
+                fill 
+                style={{ objectFit: "cover", backgroundColor: "var(--bg-secondary)" }} 
+              />
+              <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, padding: "var(--space-md)", background: "linear-gradient(to top, rgba(0,0,0,0.9), transparent)", color: "#ffffff" }}>
+                <h3 style={{ fontSize: "var(--text-xl)", margin: "0 0 var(--space-xs) 0", color: "var(--color-brand-primary)" }}>{art.title}</h3>
+                <p style={{ margin: 0, fontSize: "var(--text-base)", color: "#e4e4e7" }}>{art.desc}</p>
+              </div>
+            </article>
+          ))}
+        </div>
 
-      <div style={{ marginTop: "var(--spacing-xl)", padding: "var(--spacing-lg)", borderRadius: "var(--radius-lg)", background: "var(--surface-color)", textAlign: "center" }}>
-        <h2>Ready to amplify your message?</h2>
-        <p style={{ margin: "var(--spacing-sm) 0 var(--spacing-lg) 0", color: "var(--text-muted)" }}>
-          Let us elevate your brand and turn ideas into powerful visuals that drive results.
-        </p>
-        <Link href="/order" className="btn btn-primary" style={{ padding: "16px 32px", fontSize: "1.1rem" }}>
-          Start Your Project
-        </Link>
+        <div style={{ marginTop: "var(--space-xl)", padding: "var(--space-lg)", borderRadius: "var(--radius-lg)", background: "var(--bg-secondary)", textAlign: "center", border: "1px solid var(--border-subtle)" }}>
+          <h2 style={{ fontSize: "var(--text-2xl)" }}>Ready to amplify your message?</h2>
+          <p style={{ margin: "var(--space-sm) 0 var(--space-lg) 0", color: "var(--text-secondary)", fontSize: "var(--text-lg)" }}>
+            Let us elevate your brand and turn ideas into powerful visuals that drive results.
+          </p>
+          <Link href="/order" className="btn btn-primary" style={{ padding: "16px 32px", fontSize: "var(--text-lg)" }}>
+            Start Your Project
+          </Link>
+        </div>
       </div>
     </div>
   );
